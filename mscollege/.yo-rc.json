@@ -1,0 +1,47 @@
+{
+  "generator-ngx-rocket": {
+    "version": "5.2.0",
+    "props": {
+      "location": "path",
+      "appName": "mscollege",
+      "target": [
+        "web"
+      ],
+      "pwa": true,
+      "ui": "material",
+      "layout": "simple",
+      "auth": false,
+      "lazy": true,
+      "angulartics": true,
+      "analyticsProvider": "ga",
+      "googleAnalyticsAccount": "UA-121879465-1",
+      "prettier": true,
+      "projectName": "mscollege",
+      "packageManager": "npm",
+      "mobile": []
+    }
+  },
+  "generator-addon-firebase": {
+    "version": "2.0.0",
+    "props": {
+      "firebaseDeploy": true,
+      "appName": "mscollege",
+      "projectName": "mscollege",
+      "packageManager": "npm",
+      "location": "path",
+      "target": [
+        "web"
+      ],
+      "pwa": true,
+      "ui": "material",
+      "layout": "simple",
+      "auth": false,
+      "lazy": true,
+      "angulartics": true,
+      "analyticsProvider": "ga",
+      "googleAnalyticsAccount": "UA-121879465-1",
+      "prettier": true,
+      "mobile": []
+    }
+  }
+}

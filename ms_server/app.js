@@ -1,14 +1,30 @@
 const createError = require("http-errors");
+const cors = require("cors");
 const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const mongoose = require("mongoose");
-const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/users");
+
+// Router
+const indexrouter = require("./routes/index.router");
+const userrouter = require("./routes/users.router");
+const courserouter = require("./routes/course.router");
 
 const app = express();
+app.use(cors());
 
+mongoose
+  .connect(
+    "mongodb://localhost/mscollege",
+    { useNewUrlParser: true }
+  )
+  .then(() => {
+    console.log("Connected");
+  })
+  .catch(error => {
+    console.error(error.message);
+  });
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
@@ -19,8 +35,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/", indexRouter);
-app.use("/users", usersRouter);
+app.use("/", indexrouter);
+app.use("/users", userrouter);
+app.use("/courses", courserouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
